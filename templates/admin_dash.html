@@ -1,0 +1,44 @@
+{% include "layout.html" %}
+
+<h3 >
+    Admin Dashboard
+
+
+    
+    <small class="text-body-secondary">to Manage Shows/Theatre </small>
+  </h3>
+  <a href = "{{url_for('register_theatre')}}">
+  <button type="button" class="btn btn-outline-primary">Register Your Theatre</button></a>
+  <a href = "{{url_for('create_show')}}">
+  <button type="button" class="btn btn-outline-primary">Create New Show</button></a>
+<table class="table table-borderless">
+    <thead>
+        <tr class="table-dark">
+
+          <th scope="col">Show Id</th>
+          <th scope="col">Show Name</th>
+          <th scope="col">Seats</th>
+          <th scope="col">Price</th>
+          <th scope="col">Show Time</th>
+          <th scope="col">Action</th>
+        </tr>
+      </thead>
+  {% for theatre in theatre_list %}{% for show in show_list %}
+
+<tr>
+    <td>{{ show.show_id }}</td>
+    <td>{{ show.show_name}}</td>
+    <td>{{ show.seats }}</td>
+    <td>{{ show.price}}</td>
+    <td>{{show.show_time}}</td>
+        <td>
+            <a href = "/show/{{show.show_id}}" class="btn btn-danger"> Update Show Info </a>
+            <a href = "/show_del/{{show.show_id}}" class="btn btn-danger">Delete Show </a>
+        </td>
+   
+    
+    
+    {% endfor %}{% endfor %} 
+    </tr>
+</table>
+  </body>

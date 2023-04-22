@@ -1,0 +1,35 @@
+{% include "layout.html" %}
+<title> Infor</title>
+      <body>
+          <h1>Show Information</h1>
+          <table class="table table-borderless">
+              <thead>
+                  <tr class="table-dark">
+                      <th>Show ID</th>
+                      <th>Show Name</th>
+                      <th>Show Time</th>
+                      <th>Number of Seats</th>
+                      <th>Price</th>
+                      <th>Theatre ID</th>
+                      <th></th>
+                  </tr>
+              </thead>
+              <tbody>
+                  {% for post in post %}                    <tr>
+                          <td>{{ post.show_id }}</td>
+                          <td>{{ post.show_name }}</td>
+                          <td>{{ post.show_time }}</td>
+                          <td>{{ post.seats }}</td>
+                          <td>{{ post.price }}</td>
+                          <td>{{ post.theatre_id }}</td>
+                         
+                          <td><a href="{{ url_for('book_ticket', show_id=post.show_id,show_time = post.show_time,theatre_id=post.theatre_id )}}"<button type="button" class="btn btn-outline-success">Book Now</button></a></td>
+                          
+                      </tr>
+                  {% endfor %}
+              </tbody>
+          </table>
+      </body>
+
+      
+

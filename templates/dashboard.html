@@ -1,0 +1,33 @@
+{% include "layout.html" %}
+
+<h3 >
+    User Dashboard
+    <small class="text-body-secondary">to Manage Bookings</small>
+  </h3>
+<table class="table table-borderless">
+    <thead>
+        <tr class="table-dark">
+
+          <th scope="col">Ticket Id</th>
+          <th scope="col">User Name</th>
+          <th scope="col">Show Name</th>
+          <th scope="col">Theatre Name</th>
+          <th scope="col">Show Time</th>
+          <th scope="col">Action</th>
+        </tr>
+       </thead> {% for ticket in ticket_list %}
+<tr>
+    <td>{{ ticket.ticket_id }}</td>
+    <td>{{ ticket.User_Name }}</td>
+    <td>{{ ticket.show_name }}</td>
+    <td>{{ ticket.theatre_name}}</td>
+    <td>{{ ticket.show_time}}</td>
+    
+    <!--<td><a href="{{ url_for('delete_ticket',ticket_id = ticket.ticket_id )}}"<button type="button" class="btn btn-danger">Cancel</button></a></td>
+    -->
+    <td><a href = "/delete_ticket/{{ticket.ticket_id}}" class="btn btn-danger"> Delete </a>
+        </td>
+    </tr>
+    {% endfor %} 
+</table>
+  </body>

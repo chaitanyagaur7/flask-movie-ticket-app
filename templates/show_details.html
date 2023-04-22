@@ -1,0 +1,20 @@
+{% include "layout.html" %}
+
+<h1>{{ show.show_name }}</h1>
+
+
+<form method="POST" action="/show/{{show.show_id}}" enctype="multipart/form-data">
+  <label for="show_name">Show Name:</label>
+  <input type="text" id="show_name" name="show_name" value="{{ show.show_name }}" required>
+
+  <label for="show_time">Show Time:</label>
+  <input type="datetime-local" id="show_time" name="show_time" value="{{ show.show_time.strftime('%Y-%m-%dT%H:%M') }}" required>
+
+  <label for="seats">Seats:</label>
+  <input type="number" id="seats" name="seats" value="{{ show.seats }}" required>
+
+  <label for="price">Price:</label>
+  <input type="number" id="price" name="price" value="{{ show.price }}" required>
+
+  <button type="submit">Update Show</button>
+</form>
